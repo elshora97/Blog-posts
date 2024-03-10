@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
 
-const Login = () => {
+const Register = () => {
   const {
     register,
     handleSubmit,
@@ -19,6 +18,22 @@ const Login = () => {
         onSubmit={handleSubmit((data) => {
           console.log(data);
         })}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Name</Form.Label>
+          <Form.Control
+            {...register("name", {
+              required: "Required Field",
+              minLength: {
+                value: 5,
+                message: "Min Length must be 5",
+              },
+            })}
+            type="text"
+            placeholder="Enter email"
+          />
+          <p className="error-msg">{errors.name?.message}</p>
+        </Form.Group>
+
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -42,7 +57,7 @@ const Login = () => {
             type="password"
             placeholder="Password"
           />
-          <p className="error-msg">{errors.password?.message}</p>
+          <p className="error-msg"> {errors.password?.message}</p>
         </Form.Group>
 
         <Button variant="primary" type="submit">
@@ -50,12 +65,12 @@ const Login = () => {
         </Button>
 
         <p>
-          Didn't have an account?
-          <Link to="/register"> Regiter here.</Link>
+          have an account?
+          <Link to="/"> Login here.</Link>
         </p>
       </Form>
     </div>
   );
 };
 
-export default Login;
+export default Register;
