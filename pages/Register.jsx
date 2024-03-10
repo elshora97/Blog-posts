@@ -29,7 +29,7 @@ const Register = () => {
               },
             })}
             type="text"
-            placeholder="Enter email"
+            placeholder="Enter name"
           />
           <p className="error-msg">{errors.name?.message}</p>
         </Form.Group>

@@ -21,3 +21,24 @@ p {
   color: red;
   margin-top: 5px;
 }
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.cards {
+  padding: 10px 60px;
+}
+
+.postCard {
+  width: "200px";
+  background-color: #f1efef;
+  border: none;
+  -webkit-box-shadow: 8px 10px 32px -14px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 8px 10px 32px -14px rgba(0, 0, 0, 0.75);
+  box-shadow: 8px 10px 32px -14px rgba(0, 0, 0, 0.75);
+  margin-bottom: 20px;
+}
