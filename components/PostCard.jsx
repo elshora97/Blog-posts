@@ -8,9 +8,7 @@ const PostCard = ({ post }) => {
         <Card.Body>
           <Card.Title>{post.title}</Card.Title>
           <Card.Text>{post.content}</Card.Text>
-          <Button style={{ marginLeft: "1050px" }} variant="outline-primary">
-            Edit Post
-          </Button>
+          <Button variant="outline-primary">Edit Post</Button>
         </Card.Body>
         <Card.Footer className="text-muted text-center">
           {post.createdAt}

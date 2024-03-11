@@ -1,24 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
 
 const Register = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+    },
+  });
+
+  const onSubmit = (data) => {
+    localStorage.clear();
+    localStorage.setItem("user", JSON.stringify(data));
+    navigate("/");
+  };
 
   return (
     <div className="login-register-form">
       <h5 className="text-center mb-4">Blog Posts</h5>
-      <Form
-        onSubmit={handleSubmit((data) => {
-          console.log(data);
-        })}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form.Group className="mb-3">
           <Form.Label>Name</Form.Label>
           <Form.Control
             {...register("name", {
@@ -66,7 +76,7 @@ const Register = () => {
 
         <p>
           have an account?
-          <Link to="/"> Login here.</Link>
+          <Link to="/"> Login here</Link>
         </p>
       </Form>
     </div>
