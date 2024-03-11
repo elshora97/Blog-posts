@@ -3,6 +3,7 @@ import "./App.css";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Posts from "../pages/Posts";
+import { useEffect } from "react";
 
 function App() {
   return (

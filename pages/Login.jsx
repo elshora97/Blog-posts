@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { posts } from "../data";
 
 const Login = () => {
   const {
@@ -26,6 +27,7 @@ const Login = () => {
     } else if (user.email != data.email || user.password != data.password) {
       setShowAlert({ state: true, msg: "wrong credinttials !" });
     } else {
+      localStorage.setItem("posts", JSON.stringify({ posts }));
       navigate("/posts");
     }
   };

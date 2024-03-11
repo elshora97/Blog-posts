@@ -19,7 +19,7 @@ const Register = () => {
   });
 
   const onSubmit = (data) => {
-    localStorage.clear();
+    localStorage.removeItem("user");
     localStorage.setItem("user", JSON.stringify(data));
     navigate("/");
   };
